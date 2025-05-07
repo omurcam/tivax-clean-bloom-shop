@@ -51,7 +51,7 @@ const Hero = () => {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <Carousel className="w-full" autoplay={true}>
+      <Carousel className="w-full">
         <CarouselContent className="-ml-4">
           {slides.map((slide, index) => (
             <CarouselItem key={index} className="pl-4 w-full relative min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
