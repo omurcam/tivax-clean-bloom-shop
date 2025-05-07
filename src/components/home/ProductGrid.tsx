@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -29,7 +28,7 @@ const ProductGrid = () => {
   const [products] = useState<Product[]>([
     {
       id: "1",
-      name: "Organik Kir ve Leke Çıkarıcı",
+      name: "Çok Amaçlı Leke Çıkarıcı Portakallı 1 Litre",
       price: 129.90,
       oldPrice: 169.90,
       image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=600&h=600",
@@ -40,52 +39,52 @@ const ProductGrid = () => {
     },
     {
       id: "2",
-      name: "Doğal Banyo Temizleyici",
-      price: 149.90,
+      name: "Çok Amaçlı Leke Çıkarıcı Portakallı 500 ml",
+      price: 79.90,
       image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&q=80&w=600&h=600",
       rating: 4.9,
       reviewCount: 84,
-      features: ["Limon Kokulu", "Doğal", "Anti-Küf"],
+      features: ["Portakal Kokulu", "Doğal", "Leke Çözücü"],
       isNew: true
     },
     {
       id: "3",
-      name: "Lavanta Özlü Yüzey Spreyi",
-      price: 119.90,
-      oldPrice: 139.90,
+      name: "Çok Amaçlı Leke Çıkarıcı Çiçek Kokulu 1 Litre",
+      price: 129.90,
+      oldPrice: 149.90,
       image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=600&h=600",
       rating: 4.7,
       reviewCount: 59,
-      features: ["Lavanta Özlü", "Anti-Statik", "Parlatıcı"]
+      features: ["Çiçek Özlü", "Anti-Statik", "Parlatıcı"]
     },
     {
       id: "4",
-      name: "Çok Amaçlı Temizlik Jeli",
-      price: 159.90,
+      name: "Çok Amaçlı Leke Çıkarıcı Çiçek Kokulu 500 ml",
+      price: 79.90,
       image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=600&h=600",
       rating: 4.6,
       reviewCount: 47,
-      features: ["Konsantre", "Ekonomik", "Çam Kokulu"],
+      features: ["Konsantre", "Ekonomik", "Çiçek Kokulu"],
       isNew: true
     },
     {
       id: "5",
-      name: "El ve Cilt Dostu Bulaşık Deterjanı",
-      price: 89.90,
-      oldPrice: 109.90,
+      name: "Ultra Güçlü Yağ Çözücü 1 Litre",
+      price: 149.90,
+      oldPrice: 179.90,
       image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=600&h=600",
       rating: 4.9,
       reviewCount: 103,
-      features: ["Hassas Ciltler İçin", "Yağ Çözücü", "Aloe Vera"]
+      features: ["Yağ Çözücü", "Güçlü Formül", "Mutfak İçin İdeal"]
     },
     {
       id: "6",
-      name: "Doğal Zemin Temizleyici",
-      price: 179.90,
+      name: "Ultra Güçlü Yağ Çözücü 500 ml",
+      price: 89.90,
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&q=80&w=600&h=600",
       rating: 4.8,
       reviewCount: 72,
-      features: ["Ahşap Uyumlu", "Yüksek Konsantre", "Uzun Ömürlü"],
+      features: ["Yüksek Konsantre", "Lekelere Anında Etki", "Ekonomik"],
       isBestSeller: true
     }
   ]);
