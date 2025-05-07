@@ -1,23 +1,21 @@
 
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/home/Hero";
-import Features from "@/components/home/Features";
-import ProductCategories from "@/components/home/ProductCategories";
-import FeaturedProducts from "@/components/home/FeaturedProducts";
-import Testimonials from "@/components/home/Testimonials";
-import CallToAction from "@/components/home/CallToAction";
-import Newsletter from "@/components/home/Newsletter";
+import PromoBanner from "@/components/home/PromoBanner";
+import ProductGrid from "@/components/home/ProductGrid";
+import SocialProof from "@/components/home/SocialProof";
+import TrustBadges from "@/components/home/TrustBadges";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 const Index = () => {
   return (
     <Layout>
       <Hero />
-      <Features />
-      <ProductCategories />
-      <FeaturedProducts />
-      <Testimonials />
-      <CallToAction />
-      <Newsletter />
+      <PromoBanner />
+      <ProductGrid />
+      <SocialProof />
+      <TrustBadges />
+      <WhatsAppButton />
     </Layout>
   );
 };

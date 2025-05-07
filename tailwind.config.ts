@@ -63,7 +63,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Tivax brand colors
+				// Brand colors
 				tivax: {
 					primary: "#9b87f5",
 					secondary: "#7E69AB",
@@ -77,6 +77,13 @@ export default {
 					"soft-peach": "#FDE1D3",
 					"soft-blue": "#D3E4FD",
 					red: "#ea384c",
+				},
+				// New brand colors for wellness theme
+				brand: {
+					"light-mint": "#E8F5E9",
+					"forest": "#2E7D32",
+					"soft-green": "#F2FCE2",
+					"warm-yellow": "#FFC107",
 				}
 			},
 			borderRadius: {
@@ -117,6 +124,10 @@ export default {
 					'0%': { transform: 'scale(0.95)', opacity: '0' },
 					'100%': { transform: 'scale(1)', opacity: '1' }
 				},
+				'progress': {
+					'0%': { width: '0%' },
+					'100%': { width: '100%' }
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -125,6 +136,7 @@ export default {
 				'fade-out': 'fade-out 0.3s ease-in-out',
 				'slide-in': 'slide-in 0.4s ease-out',
 				'scale-in': 'scale-in 0.3s ease-out',
+				'progress': 'progress 2s linear',
 			},
 			fontFamily: {
 				sans: ['Inter', 'Roboto', 'sans-serif'],

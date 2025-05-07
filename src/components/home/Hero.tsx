@@ -1,78 +1,91 @@
 
+import { useState, useEffect } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+interface SlideProps {
+  title: string;
+  subtitle: string;
+  imageUrl: string;
+  ctaLink: string;
+}
+
+const slides: SlideProps[] = [
+  {
+    title: "Anne'ler Günü İndirimi",
+    subtitle: "Tüm ürünlerde %40 indirim fırsatını kaçırmayın",
+    imageUrl: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=1920&h=600",
+    ctaLink: "/products/mothers-day",
+  },
+  {
+    title: "İlk Siparişinizde %10 İndirim",
+    subtitle: "Yeni müşterilerimize özel kupon kodu: MERHABA10",
+    imageUrl: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=1920&h=600",
+    ctaLink: "/products/new-customer",
+  },
+  {
+    title: "Bahar Temizliği Koleksiyonu",
+    subtitle: "Yeni sezon ürünleri ile evinize bahar tazeliğini getirin",
+    imageUrl: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&q=80&w=1920&h=600",
+    ctaLink: "/products/spring-collection",
+  },
+];
 
 const Hero = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current === slides.length - 1 ? 0 : current + 1));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="relative bg-gradient-to-r from-tivax-light to-tivax-soft-peach">
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-tivax-primary opacity-10"></div>
-        <div className="absolute bottom-12 left-1/3 w-24 h-24 rounded-full bg-tivax-orange opacity-10"></div>
-        <div className="absolute top-1/2 right-1/4 w-16 h-16 rounded-full bg-tivax-blue opacity-10"></div>
-      </div>
-
-      <div className="container-custom relative z-10 py-16 md:py-24 lg:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="inline-block bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full mb-2">
-              <span className="text-tivax-primary font-medium">Yeni Başlangıçlar</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Doğanın Gücüyle <span className="text-tivax-primary">Etkili ve Keyifli</span> Temizlik
-            </h1>
-            <p className="text-lg text-gray-700">
-              Renkli, kokulu, doğal ve güçlü temizlik ürünlerimizle evinize bahar tazeliğini getirin. 
-              Tivax ile temizlik artık bir keyif!
-            </p>
-            <div className="pt-4 flex flex-wrap gap-4">
-              <Button asChild className="btn-primary">
-                <Link to="/products">
-                  Şimdi Keşfet <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="btn-secondary">
-                <Link to="/about">Hakkımızda</Link>
-              </Button>
-            </div>
-            <div className="pt-4 flex items-center space-x-6">
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-tivax-primary">%100</span>
-                <span className="text-sm text-gray-600">Doğal İçerik</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-tivax-primary">14+</span>
-                <span className="text-sm text-gray-600">Farklı Koku</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-tivax-primary">5000+</span>
-                <span className="text-sm text-gray-600">Mutlu Müşteri</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 bg-tivax-primary rounded-full blur-3xl opacity-20 transform -rotate-6"></div>
-            <div className="relative bg-white p-3 rounded-2xl shadow-lg transform rotate-3 transition-all hover:rotate-0">
-              <img 
-                src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=800&h=800" 
-                alt="Tivax Temizlik Ürünleri" 
-                className="w-full h-auto rounded-xl" 
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white shadow-lg rounded-lg p-4 transform -rotate-3">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-tivax-orange"></div>
-                  <div className="w-3 h-3 rounded-full bg-tivax-blue"></div>
-                  <div className="w-3 h-3 rounded-full bg-tivax-primary"></div>
-                  <div className="w-3 h-3 rounded-full bg-tivax-magenta"></div>
+    <div className="relative w-full overflow-hidden">
+      <Carousel className="w-full" autoplay={true}>
+        <CarouselContent className="-ml-4">
+          {slides.map((slide, index) => (
+            <CarouselItem key={index} className="pl-4 w-full relative min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
+              <div 
+                className="w-full h-full rounded-lg overflow-hidden"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(46, 125, 50, 0.3), rgba(46, 125, 50, 0.5)), url(${slide.imageUrl})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-tivax-primary/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-[url('/pine-texture.png')] opacity-20 mix-blend-overlay"></div>
+                
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 sm:px-6 lg:px-8 max-w-4xl">
+                  <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-3 drop-shadow-lg">
+                    {slide.title}
+                  </h1>
+                  <p className="text-sm md:text-lg text-white mb-6 max-w-xl mx-auto">
+                    {slide.subtitle}
+                  </p>
+                  <Button asChild size="lg" className="bg-white text-[#2E7D32] hover:bg-[#FFC107] hover:text-white font-semibold px-8 rounded-full transform transition-transform hover:scale-105">
+                    <Link to={slide.ctaLink}>
+                      Şimdi Alışverişe Başla
+                    </Link>
+                  </Button>
                 </div>
-                <p className="text-xs mt-1">Renkli ve Kokulu</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-4" />
+        <CarouselNext className="right-4" />
+      </Carousel>
     </div>
   );
 };
